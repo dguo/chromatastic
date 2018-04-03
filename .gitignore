@@ -1,0 +1,6 @@
+*.log
+*.swp
+*.swo
+dist/
+node_modules/
+web-ext-artifacts/

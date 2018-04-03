@@ -1,0 +1,17 @@
+{
+    "manifest_version": 2,
+    "name": "Chromatastic",
+    "version": "0.1.0",
+    "author": "Danny Guo",
+    "homepage_url": "https://github.com/dguo/chromatastic",
+    "applications": {
+        "gecko": {
+            "id": "@chromatastic",
+            "strict_min_version": "60.0a1"
+        }
+    },
+    "permissions": ["theme"],
+    "background": {
+        "scripts": ["dist/background.js"]
+    }
+}
