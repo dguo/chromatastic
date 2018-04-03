@@ -18,7 +18,7 @@
         "build": "yarn run clean && webpack --mode=development",
         "build:release": "yarn run clean && webpack --mode=production",
         "build:watch": "yarn run clean && webpack --mode=development --watch",
-        "clean": "rimraf dist",
+        "clean": "rimraf extension/js",
         "format": "prettier --write \"./**/*.{json,js}\"",
         "format:check": "prettier --list-different \"./**/*.{json,js}\"",
         "lint": "eslint src/**/*",
@@ -33,6 +33,7 @@
         "eslint": "^4.19.1",
         "eslint-config-prettier": "^2.9.0",
         "prettier": "^1.11.1",
+        "web-ext": "^2.6.0",
         "webpack": "^4.2.0",
         "webpack-cli": "^2.0.13"
     },

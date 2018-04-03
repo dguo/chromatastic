@@ -5,7 +5,7 @@ const config = {
     devtool: 'inline-source-map',
     output: {
         filename: '[name].js',
-        path: __dirname + '/dist'
+        path: __dirname + '/extension/js'
     }
 };
 
