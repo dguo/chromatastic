@@ -1,10 +1,12 @@
 # Chromatastic [![Build Status](https://travis-ci.org/dguo/chromatastic.svg?branch=master)](https://travis-ci.org/dguo/chromatastic)
-A [dyanmic Firefox
+A [dynamic Firefox
 theme](https://developer.mozilla.org/en-US/Add-ons/Themes/Theme_concepts#Dynamic_themes)
-that continuously cycles through colors.
+that continuously cycles through colors. Available in [Firefox
+Add-ons](https://addons.mozilla.org/en-US/firefox/addon/chromatastic/).
 
-## Requirements
-* Firefox 60 and above
+## Installation
+This extension requires Firefox 60 and above. Install it from the
+[Add-ons](https://addons.mozilla.org/en-US/firefox/addon/chromatastic/) page.
 
 ## Build Instructions
 I use the Node version specified in `.nvmrc`. Run `$ yarn install && yarn run
