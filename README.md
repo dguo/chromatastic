@@ -4,6 +4,18 @@ theme](https://developer.mozilla.org/en-US/Add-ons/Themes/Theme_concepts#Dynamic
 that continuously cycles through colors. Available in [Firefox
 Add-ons](https://addons.mozilla.org/en-US/firefox/addon/chromatastic/).
 
+## Demo
+This GIF shows the speed of the color transitions, which occur slowly and smoothly
+rather than jumping from color to color.
+![video](https://i.imgur.com/qRwh1WU.gif)
+
+## Screenshots
+![red](https://i.imgur.com/ePaCPdR.png)
+![purple](https://i.imgur.com/spZLFrq.png)
+![blue](https://i.imgur.com/lFPKI9e.png)
+![green](https://i.imgur.com/mKMHnbf.png)
+![yellow](https://i.imgur.com/CZXVsP5.png)
+
 ## Installation
 This extension requires Firefox 60 and above. Install it from the
 [Add-ons](https://addons.mozilla.org/en-US/firefox/addon/chromatastic/) page.
