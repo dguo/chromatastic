@@ -33,7 +33,7 @@
         "eslint": "^5.2.0",
         "eslint-config-prettier": "^3.0.1",
         "prettier": "^1.14.2",
-        "web-ext": "^2.8.0",
+        "web-ext": "^2.9.1",
         "webpack": "^4.17.1",
         "webpack-cli": "^3.1.0"
     },
