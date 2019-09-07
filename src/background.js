@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 const fontColorContrast = require('font-color-contrast');
 const hsvToRgb = require('hsv-rgb');
 
@@ -14,11 +12,10 @@ const colorGenerator = getColor();
 
 function updateTheme() {
     const color = colorGenerator.next().value;
-    // console.log(color);
     const theme = {
         colors: {
-            accentcolor: color,
-            textcolor: fontColorContrast(color)
+            frame: color,
+            tab_background_text: fontColorContrast(color)
         }
     };
 
