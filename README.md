@@ -29,7 +29,7 @@ rather than jumping from color to color.
 
 ## Installation
 
-This extension requires Firefox 60 and above. Install it from the
+This extension requires Firefox 63 and above. Install it from the
 [Add-ons](https://addons.mozilla.org/en-US/firefox/addon/chromatastic/) page.
 
 ## Build Instructions
