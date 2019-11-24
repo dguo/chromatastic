@@ -1,8 +1,7 @@
 # Chromatastic
 
 [![Mozilla Add-on](https://img.shields.io/amo/v/chromatastic)](https://addons.mozilla.org/en-US/firefox/addon/chromatastic/)
-![CI status](https://github.com/dguo/chromatastic/workflows/CI/badge.svg)
-[![Build Status](https://travis-ci.org/dguo/chromatastic.svg?branch=master)](https://travis-ci.org/dguo/chromatastic)
+[![CI status](https://github.com/dguo/chromatastic/workflows/CI/badge.svg)](https://github.com/dguo/chromatastic/actions?query=branch%3Amaster)
 
 A [dynamic Firefox
 theme](https://developer.mozilla.org/en-US/Add-ons/Themes/Theme_concepts#Dynamic_themes)
