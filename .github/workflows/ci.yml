@@ -35,3 +35,7 @@ jobs:
         run: yarn run web-ext lint
       - name: Build the extension
         run: yarn run web-ext build
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
