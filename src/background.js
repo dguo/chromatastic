@@ -1,5 +1,5 @@
-const fontColorContrast = require('font-color-contrast');
-const hsvToRgb = require('hsv-rgb');
+const fontColorContrast = require("font-color-contrast");
+const hsvToRgb = require("hsv-rgb");
 
 function* getColor() {
     for (let h = 0; h < 360; h = h < 359 ? h + 1 : 0) {
