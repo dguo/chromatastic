@@ -1,6 +1,6 @@
 const config = {
     entry: {
-        background: "./src/background.js"
+        background: "./source/background.js"
     },
     devtool: "inline-source-map",
     output: {

@@ -21,7 +21,7 @@
         "clean": "rimraf extension/js",
         "format": "prettier --write \"./**/*.{json,js}\"",
         "format:check": "prettier --list-different \"./**/*.{json,js}\"",
-        "lint": "eslint src/**/*",
+        "lint": "eslint source/**/*",
         "release": "yarn run format:check && yarn run lint && yarn run build:release && web-ext lint && web-ext build --overwrite-dest",
         "start": "yarn install && yarn run build:watch"
     },
