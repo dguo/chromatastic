@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "sourceMap": true,
+        "strict": true,
+        "target": "ES2017"
+    }
+}

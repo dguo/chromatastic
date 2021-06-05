@@ -14,6 +14,7 @@
         "type": "git",
         "url": "https://github.com/dguo/chromatastic.git"
     },
+    "type": "module",
     "scripts": {
         "build": "yarn run clean && webpack --mode=development",
         "build:release": "yarn run clean && webpack --mode=production",
@@ -30,10 +31,16 @@
         "hsv-rgb": "^1.0.0"
     },
     "devDependencies": {
+        "@types/firefox-webext-browser": "^82.0.0",
+        "@typescript-eslint/eslint-plugin": "^4.26.0",
+        "@typescript-eslint/parser": "^4.26.0",
         "eslint": "^7.27.0",
         "eslint-config-prettier": "^8.3.0",
+        "fork-ts-checker-webpack-plugin": "^6.2.10",
         "prettier": "^2.3.0",
         "rimraf": "^3.0.2",
+        "ts-loader": "^9.2.2",
+        "typescript": "^4.3.2",
         "web-ext": "^6.1.0",
         "webpack": "^5.38.1",
         "webpack-cli": "^4.7.0"
@@ -46,15 +53,24 @@
         },
         "extends": [
             "eslint:recommended",
+            "plugin:@typescript-eslint/recommended",
             "prettier"
         ],
+        "parser": "@typescript-eslint/parser",
         "parserOptions": {
             "ecmaVersion": 8
-        }
+        },
+        "plugins": [
+            "@typescript-eslint"
+        ],
+        "root": true
     },
     "prettier": {
         "bracketSpacing": false,
         "tabWidth": 4,
         "trailingComma": "none"
+    },
+    "webExt": {
+        "sourceDir": "extension"
     }
 }
