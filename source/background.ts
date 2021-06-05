@@ -1,9 +1,9 @@
-const fontColorContrast = require("font-color-contrast");
-const hsvToRgb = require("hsv-rgb");
+import fontColorContrast from "font-color-contrast";
+import hsvToRgb from "hsv-rgb";
 
 function* getColor() {
-    for (let h = 0; h < 360; h = h < 359 ? h + 1 : 0) {
-        const color = hsvToRgb(h, 50, 70);
+    for (let hue = 0; hue < 360; hue = hue < 359 ? hue + 1 : 0) {
+        const color = hsvToRgb(hue, 50, 70);
         yield color;
     }
 }
@@ -11,7 +11,7 @@ function* getColor() {
 const colorGenerator = getColor();
 
 function updateTheme() {
-    const color = colorGenerator.next().value;
+    const color = colorGenerator.next().value as [number, number, number];
     const theme = {
         colors: {
             frame: color,
