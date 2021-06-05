@@ -54,4 +54,4 @@ If you have Python 3 and Docker, you can also run `$ ./dev` for a development
 
 ## License
 
-[MIT](https://github.com/dguo/chromatastic/blob/main/LICENSE)
+[MIT](https://github.com/dguo/chromatastic/blob/main/LICENSE.txt)
