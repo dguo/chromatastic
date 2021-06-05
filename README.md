@@ -9,7 +9,8 @@ that continuously cycles through colors. Available in [Firefox
 Add-ons](https://addons.mozilla.org/en-US/firefox/addon/chromatastic/).
 
 Chromatastic was originally created for the [Firefox Quantum Extensions
-Challenge](https://extensionschallenge.com/). I wrote a [blog
+Challenge](https://web.archive.org/web/20210227220946/https://extensionschallenge.com/).
+I wrote a [blog
 post](https://www.dannyguo.com/blog/building-dynamic-firefox-themes/) detailing
 my experience.
 
@@ -29,14 +30,14 @@ rather than jumping from color to color.
 
 ## Installation
 
-This extension requires Firefox 63 and above. Install it from the
-[Add-ons](https://addons.mozilla.org/en-US/firefox/addon/chromatastic/) page.
+This extension requires Firefox 63 and above. Install the extension from this
+[Add-ons page](https://addons.mozilla.org/en-US/firefox/addon/chromatastic/).
 
 ## Build Instructions
 
 I use the Node version specified in `.nvmrc`. Run `$ yarn install && yarn run
-build:release`. This should generate the final JavaScript files and place
-them in `extension/js`.
+build:release`. This should generate the final JavaScript files and place them
+in `extension/js`.
 
 To generate a ZIP file for uploading to [Add-ons](https://addons.mozilla.org/),
 run `$ yarn run release`.
@@ -53,4 +54,4 @@ If you have Python 3 and Docker, you can also run `$ ./dev` for a development
 
 ## License
 
-[MIT](https://github.com/dguo/chromatastic/blob/master/LICENSE)
+[MIT](https://github.com/dguo/chromatastic/blob/main/LICENSE)
