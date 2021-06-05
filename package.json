@@ -16,15 +16,15 @@
     },
     "type": "module",
     "scripts": {
-        "build": "yarn run clean && webpack --mode=development",
-        "build:release": "yarn run clean && webpack --mode=production",
-        "build:watch": "yarn run clean && webpack --mode=development --watch",
+        "build": "webpack --mode=development",
+        "build:release": "webpack --mode=production",
+        "build:watch": "webpack --mode=development --watch",
         "clean": "rimraf extension/js",
         "format": "prettier --write \"./**/*.{json,js}\"",
         "format:check": "prettier --list-different \"./**/*.{json,js}\"",
         "lint": "eslint source/**/*",
         "release": "yarn run format:check && yarn run lint && yarn run build:release && web-ext lint && web-ext build --overwrite-dest",
-        "start": "yarn install && yarn run build:watch"
+        "start": "yarn install && yarn run clean && concurrently --names webpack,web-ext --timestamp-format HH:mm:ss.SSS -c \"yellow,green\" --prefix \"{name}: {time}\" -s first \"yarn run build:watch\" \"web-ext run --firefox=firefoxdeveloperedition\""
     },
     "dependencies": {
         "font-color-contrast": "^1.0.3",
@@ -34,6 +34,7 @@
         "@types/firefox-webext-browser": "^82.0.0",
         "@typescript-eslint/eslint-plugin": "^4.26.0",
         "@typescript-eslint/parser": "^4.26.0",
+        "concurrently": "^6.2.0",
         "eslint": "^7.27.0",
         "eslint-config-prettier": "^8.3.0",
         "fork-ts-checker-webpack-plugin": "^6.2.10",
