@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 import {dirname} from "path";
 import {fileURLToPath} from "url";
 
@@ -10,7 +12,8 @@ export default {
         background: "./source/background.ts",
         options: "./source/options.tsx"
     },
-    devtool: "inline-source-map",
+    devtool:
+        process.env.NODE_ENV === "production" ? undefined : "inline-source-map",
     output: {
         filename: "[name].js",
         path: __dirname + "/extension/js"
@@ -29,6 +32,10 @@ export default {
                        care of that. */
                     transpileOnly: true
                 }
+            },
+            {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader", "postcss-loader"]
             }
         ]
     },
