@@ -7,7 +7,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default {
     entry: {
-        background: "./source/background.ts"
+        background: "./source/background.ts",
+        options: "./source/options.tsx"
     },
     devtool: "inline-source-map",
     output: {

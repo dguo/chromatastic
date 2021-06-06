@@ -17,8 +17,13 @@
         "96": "img/logo-96.png",
         "128": "img/logo-128.png"
     },
-    "permissions": ["theme"],
+    "permissions": ["storage", "theme"],
     "background": {
         "scripts": ["js/background.js"]
+    },
+    "options_ui": {
+        "browser_style": false,
+        "open_in_tab": true,
+        "page": "options.html"
     }
 }
