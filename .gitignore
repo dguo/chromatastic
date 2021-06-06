@@ -1,6 +1,7 @@
 *.log
 *.swp
 *.swo
-extension/js/
+.parcel-cache/
+dist/
 node_modules/
 web-ext-artifacts/
