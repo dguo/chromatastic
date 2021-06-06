@@ -1,6 +1,8 @@
 {
     "compilerOptions": {
         "esModuleInterop": true,
+        "jsx": "react",
+        "moduleResolution": "node",
         "sourceMap": true,
         "strict": true,
         "target": "ES2017"
