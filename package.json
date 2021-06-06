@@ -23,7 +23,7 @@
         "format:check": "prettier --list-different \"./**/*.{json,js,jsx,ts,tsx}\"",
         "lint": "eslint \"./source/**/*.{js,jsx,ts,tsx}\"",
         "release": "yarn install && yarn run format:check && yarn run lint && yarn run clean && yarn run build && web-ext lint && web-ext build --overwrite-dest",
-        "start": "yarn install && yarn run clean && concurrently --names webpack,web-ext --timestamp-format HH:mm:ss.SSS -c \"yellow,green\" --prefix \"{name}: {time}\" -s first \"yarn run build:dev\" \"wait-on dist/manifest.json && web-ext run --no-reload --firefox=firefoxdeveloperedition\""
+        "start": "yarn install && yarn run clean && concurrently --names \"parcel ,web-ext\" --timestamp-format HH:mm:ss.SSS -c \"yellow,green\" --prefix \"{name} | {time} | \" -s first \"yarn run build:dev\" \"wait-on dist/manifest.json && web-ext run --no-reload --firefox=firefoxdeveloperedition\""
     },
     "dependencies": {
         "font-color-contrast": "^1.0.3",
@@ -40,12 +40,15 @@
         "@types/react-dom": "^17.0.6",
         "@typescript-eslint/eslint-plugin": "^4.26.0",
         "@typescript-eslint/parser": "^4.26.0",
+        "autoprefixer": "^10.2.6",
         "concurrently": "^6.2.0",
         "eslint": "^7.27.0",
         "eslint-config-prettier": "^8.3.0",
         "parcel": "2.0.0-beta.2",
+        "postcss": "^8.3.0",
         "prettier": "^2.3.0",
         "rimraf": "^3.0.2",
+        "tailwindcss": "^2.1.4",
         "typescript": "^4.3.2",
         "wait-on": "^5.3.0",
         "web-ext": "^6.1.0"
@@ -65,6 +68,12 @@
             "@typescript-eslint"
         ],
         "root": true
+    },
+    "postcss": {
+        "plugins": {
+            "tailwindcss": {},
+            "autoprefixer": {}
+        }
     },
     "prettier": {
         "bracketSpacing": false,
