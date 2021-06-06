@@ -16,15 +16,14 @@
     },
     "type": "module",
     "scripts": {
-        "build": "webpack --mode=development",
-        "build:release": "webpack --mode=production",
-        "build:watch": "webpack --mode=development --watch",
-        "clean": "rimraf extension/js",
-        "format": "prettier --write \"./**/*.{json,js}\"",
-        "format:check": "prettier --list-different \"./**/*.{json,js}\"",
-        "lint": "eslint webpack.config.js source/**/*",
-        "release": "yarn run format:check && yarn run lint && yarn run build:release && web-ext lint && web-ext build --overwrite-dest",
-        "start": "yarn install && yarn run clean && concurrently --names webpack,web-ext --timestamp-format HH:mm:ss.SSS -c \"yellow,green\" --prefix \"{name}: {time}\" -s first \"yarn run build:watch\" \"web-ext run --firefox=firefoxdeveloperedition\""
+        "build": "parcel build source/manifest.json --target webext-prod",
+        "build:dev": "parcel source/manifest.json --host localhost --target webext-dev",
+        "clean": "rimraf dist",
+        "format": "prettier --write \"./**/*.{json,js,jsx,ts,tsx}\"",
+        "format:check": "prettier --list-different \"./**/*.{json,js,jsx,ts,tsx}\"",
+        "lint": "eslint \"./source/**/*.{js,jsx,ts,tsx}\"",
+        "release": "yarn install && yarn run format:check && yarn run lint && yarn run clean && yarn run build && web-ext lint && web-ext build --overwrite-dest",
+        "start": "yarn install && yarn run clean && concurrently --names webpack,web-ext --timestamp-format HH:mm:ss.SSS -c \"yellow,green\" --prefix \"{name}: {time}\" -s first \"yarn run build:dev\" \"wait-on dist/manifest.json && web-ext run --no-reload --firefox=firefoxdeveloperedition\""
     },
     "dependencies": {
         "font-color-contrast": "^1.0.3",
@@ -34,6 +33,8 @@
         "react-hook-form": "^7.8.1"
     },
     "devDependencies": {
+        "@parcel/config-webextension": "2.0.0-beta.2",
+        "@parcel/validator-typescript": "^2.0.0-nightly.710",
         "@types/firefox-webext-browser": "^82.0.0",
         "@types/react": "^17.0.9",
         "@types/react-dom": "^17.0.6",
@@ -42,14 +43,12 @@
         "concurrently": "^6.2.0",
         "eslint": "^7.27.0",
         "eslint-config-prettier": "^8.3.0",
-        "fork-ts-checker-webpack-plugin": "^6.2.10",
+        "parcel": "2.0.0-beta.2",
         "prettier": "^2.3.0",
         "rimraf": "^3.0.2",
-        "ts-loader": "^9.2.2",
         "typescript": "^4.3.2",
-        "web-ext": "^6.1.0",
-        "webpack": "^5.38.1",
-        "webpack-cli": "^4.7.0"
+        "wait-on": "^5.3.0",
+        "web-ext": "^6.1.0"
     },
     "eslintConfig": {
         "env": {
@@ -72,7 +71,18 @@
         "tabWidth": 4,
         "trailingComma": "none"
     },
+    "targets": {
+        "webext-dev": {
+            "sourceMap": {
+                "inline": true,
+                "inlineSources": true
+            }
+        },
+        "webext-prod": {
+            "distDir": "dist"
+        }
+    },
     "webExt": {
-        "sourceDir": "extension"
+        "sourceDir": "dist"
     }
 }

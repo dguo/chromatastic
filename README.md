@@ -35,14 +35,11 @@ This extension requires Firefox 63 and above. Install the extension from this
 
 ## Build Instructions
 
-I use the Node version specified in `.nvmrc`. Run `$ yarn install && yarn run
-build:release`. This should generate the final JavaScript files and place them
-in `extension/js`.
+I use the Node version specified in `.nvmrc`. Run `yarn start` to start
+development.
 
 To generate a ZIP file for uploading to [Add-ons](https://addons.mozilla.org/),
 run `$ yarn run release`.
-
-If you have Python 3 and Docker, you can also run `$ ./dev` for a development
 
 ## Other Themes
 
