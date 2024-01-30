@@ -35,7 +35,7 @@ This extension requires Firefox 63 and above. Install the extension from this
 
 ## Build Instructions
 
-I use the Node version specified in `.nvmrc`. Run `yarn start` to start
+I use the Node version specified in `.tool-versions`. Run `yarn start` to start
 development.
 
 To generate a ZIP file for uploading to [Add-ons](https://addons.mozilla.org/),
