@@ -26,31 +26,32 @@
         "start": "yarn install && yarn run clean && concurrently --names \"parcel ,web-ext\" --timestamp-format HH:mm:ss.SSS -c \"yellow,green\" --prefix \"{name} | {time} | \" -s first \"yarn run build:dev\" \"wait-on dist/manifest.json && web-ext run --no-reload --firefox=firefoxdeveloperedition\""
     },
     "dependencies": {
-        "font-color-contrast": "^11.1.0",
-        "hsv-rgb": "^1.0.0",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "react-hook-form": "^7.49.3"
+        "font-color-contrast": "11.1.0",
+        "hsv-rgb": "1.0.0",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "react-hook-form": "7.49.3"
     },
     "devDependencies": {
         "@parcel/config-webextension": "2.11.0",
+        "@parcel/core": "2.11.0",
         "@parcel/validator-typescript": "2.11.0",
-        "@types/firefox-webext-browser": "^120.0.0",
-        "@types/react": "^18.2.48",
-        "@types/react-dom": "^18.2.18",
-        "@typescript-eslint/eslint-plugin": "^6.20.0",
-        "@typescript-eslint/parser": "^6.20.0",
-        "concurrently": "^8.2.2",
-        "eslint": "^8.56.0",
-        "eslint-config-prettier": "^9.1.0",
+        "@types/firefox-webext-browser": "120.0.0",
+        "@types/react": "18.2.48",
+        "@types/react-dom": "18.2.18",
+        "@typescript-eslint/eslint-plugin": "6.20.0",
+        "@typescript-eslint/parser": "6.20.0",
+        "concurrently": "8.2.2",
+        "eslint": "8.56.0",
+        "eslint-config-prettier": "9.1.0",
         "parcel": "2.11.0",
-        "postcss": "^8.4.33",
-        "prettier": "^3.2.4",
-        "rimraf": "^5.0.5",
-        "tailwindcss": "^3.4.1",
+        "postcss": "8.4.33",
+        "prettier": "3.2.4",
+        "rimraf": "5.0.5",
+        "tailwindcss": "3.4.1",
         "typescript": "5.3.3",
-        "wait-on": "^7.2.0",
-        "web-ext": "^7.11.0"
+        "wait-on": "7.2.0",
+        "web-ext": "7.11.0"
     },
     "eslintConfig": {
         "env": {
@@ -91,5 +92,6 @@
     },
     "webExt": {
         "sourceDir": "dist"
-    }
+    },
+    "packageManager": "yarn@4.0.2"
 }
