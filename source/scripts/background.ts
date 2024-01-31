@@ -1,19 +1,19 @@
 import fontColorContrast from "font-color-contrast";
 import hsvToRgb from "hsv-rgb";
 
-import {DEFAULT_INTERVAL_IN_MS} from "./constants";
+import {DEFAULT_INTERVAL_IN_MS, STORAGE_KEY_FOR_INTERVAL} from "./constants";
 
-function* getColor() {
-    for (let hue = 0; hue < 360; hue = hue < 359 ? hue + 1 : 0) {
-        const color = hsvToRgb(hue, 50, 70);
-        yield color;
+async function updateTheme() {
+    const {hue: storedHue} = await browser.storage.local.get("hue");
+    let hue = 0;
+    if (typeof storedHue === "number") {
+        // hsvToRgb returns NaN if hue is 360
+        hue = storedHue < 359 ? storedHue + 1 : 0;
     }
-}
 
-const colorGenerator = getColor();
+    await browser.storage.local.set({hue});
 
-function updateTheme() {
-    const color = colorGenerator.next().value as [number, number, number];
+    const color = hsvToRgb(hue, 50, 70);
     const theme = {
         colors: {
             frame: color,
@@ -24,28 +24,34 @@ function updateTheme() {
     browser.theme.update(theme);
 }
 
-let intervalId: number;
+browser.alarms.onAlarm.addListener(() => {
+    updateTheme();
+});
 
 (async () => {
-    let interval;
+    let interval = DEFAULT_INTERVAL_IN_MS;
     try {
-        const settings = await browser.storage.sync.get("interval");
-        interval = settings.interval;
+        const {STORAGE_KEY_FOR_INTERVAL: storedInterval} =
+            await browser.storage.sync.get(STORAGE_KEY_FOR_INTERVAL);
+        if (storedInterval) {
+            interval = storedInterval;
+        }
     } catch {
-        // We should still set the interval instead of erroring out.
+        // We can just use the default instead of erroring out.
     }
 
-    intervalId = window.setInterval(
-        updateTheme,
-        interval ?? DEFAULT_INTERVAL_IN_MS
-    );
+    browser.alarms.create({
+        periodInMinutes: interval / 60_000
+    });
 })();
 
-browser.storage.onChanged.addListener((changes) => {
-    window.clearInterval(intervalId);
+browser.storage.sync.onChanged.addListener(async (changes) => {
+    if (changes.interval) {
+        await browser.alarms.clear();
 
-    intervalId = window.setInterval(
-        updateTheme,
-        changes.interval.newValue ?? DEFAULT_INTERVAL_IN_MS
-    );
+        browser.alarms.create({
+            periodInMinutes:
+                (changes.interval.newValue ?? DEFAULT_INTERVAL_IN_MS) / 60_000
+        });
+    }
 });
