@@ -4,14 +4,14 @@ import hsvToRgb from "hsv-rgb";
 import {DEFAULT_INTERVAL_IN_MS, STORAGE_KEY_FOR_INTERVAL} from "./constants";
 
 async function updateTheme() {
-    const {hue: storedHue} = await browser.storage.local.get("hue");
+    const {hue: storedHue} = await browser.storage.session.get("hue");
     let hue = 0;
     if (typeof storedHue === "number") {
         // hsvToRgb returns NaN if hue is 360
         hue = storedHue < 359 ? storedHue + 1 : 0;
     }
 
-    await browser.storage.local.set({hue});
+    await browser.storage.session.set({hue});
 
     const color = hsvToRgb(hue, 50, 70);
     const theme = {
