@@ -5,10 +5,13 @@ import {DEFAULT_INTERVAL_IN_MS, STORAGE_KEY_FOR_INTERVAL} from "./constants";
 
 async function updateTheme() {
     const {hue: storedHue} = await browser.storage.session.get("hue");
-    let hue = 0;
+    let hue;
     if (typeof storedHue === "number") {
         // hsvToRgb returns NaN if hue is 360
         hue = storedHue < 359 ? storedHue + 1 : 0;
+    } else {
+        // Use a random integer between 0 and 359, inclusive
+        hue = Math.floor(Math.random() * 360);
     }
 
     await browser.storage.session.set({hue});
