@@ -17,7 +17,7 @@
     "type": "module",
     "scripts": {
         "build": "parcel build source/manifest.json --target webext-prod",
-        "build:dev": "parcel source/manifest.json --host localhost --target webext-dev",
+        "build:dev": "parcel watch source/manifest.json --host localhost --target webext-dev",
         "clean": "rimraf dist",
         "format": "prettier --write \"./**/*.{json,js,jsx,ts,tsx}\"",
         "format:check": "prettier --list-different \"./**/*.{json,js,jsx,ts,tsx}\"",
@@ -81,6 +81,7 @@
     },
     "targets": {
         "webext-dev": {
+            "distDir": "dist",
             "sourceMap": {
                 "inline": true,
                 "inlineSources": true
