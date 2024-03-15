@@ -7,7 +7,7 @@
     "browser_specific_settings": {
         "gecko": {
             "id": "@chromatastic",
-            "strict_min_version": "115.0.0"
+            "strict_min_version": "115.0"
         }
     },
     "icons": {
