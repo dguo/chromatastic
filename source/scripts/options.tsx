@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import {useForm, SubmitHandler} from "react-hook-form";
 
-import {DEFAULT_INTERVAL_IN_MS} from "./constants";
+import {DEFAULT_INTERVAL_IN_MS, STORAGE_KEY_FOR_INTERVAL} from "./constants";
 
 type Inputs = {
     interval: number;
@@ -21,7 +21,7 @@ function Options(props: OptionsProps) {
 
     const onSubmit: SubmitHandler<Inputs> = (data) => {
         browser.storage.sync.set({
-            interval: data.interval
+            [STORAGE_KEY_FOR_INTERVAL]: data.interval
         });
 
         // TODO: display a success message
@@ -36,7 +36,7 @@ function Options(props: OptionsProps) {
 
 (async () => {
     // TODO: handle an error getting the value
-    const settings = await browser.storage.sync.get("interval");
+    const settings = await browser.storage.sync.get(STORAGE_KEY_FOR_INTERVAL);
     const interval = settings.interval ?? DEFAULT_INTERVAL_IN_MS;
 
     const options = <Options interval={interval} />;

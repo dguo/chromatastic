@@ -1,6 +1,6 @@
 {
     "name": "chromatastic",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "Dynamic Firefox theme",
     "homepage": "https://github.com/dguo/chromatastic",
     "bugs": "https://github.com/dguo/chromatastic/issues",
@@ -17,7 +17,7 @@
     "type": "module",
     "scripts": {
         "build": "parcel build source/manifest.json --target webext-prod",
-        "build:dev": "parcel source/manifest.json --host localhost --target webext-dev",
+        "build:dev": "parcel watch source/manifest.json --host localhost --target webext-dev",
         "clean": "rimraf dist",
         "format": "prettier --write \"./**/*.{json,js,jsx,ts,tsx}\"",
         "format:check": "prettier --list-different \"./**/*.{json,js,jsx,ts,tsx}\"",
@@ -30,26 +30,26 @@
         "hsv-rgb": "1.0.0",
         "react": "18.2.0",
         "react-dom": "18.2.0",
-        "react-hook-form": "7.49.3"
+        "react-hook-form": "7.51.0"
     },
     "devDependencies": {
-        "@parcel/config-webextension": "2.11.0",
-        "@parcel/core": "2.11.0",
-        "@parcel/validator-typescript": "2.11.0",
-        "@types/firefox-webext-browser": "120.0.0",
-        "@types/react": "18.2.48",
-        "@types/react-dom": "18.2.18",
-        "@typescript-eslint/eslint-plugin": "6.20.0",
-        "@typescript-eslint/parser": "6.20.0",
+        "@parcel/config-webextension": "2.12.0",
+        "@parcel/core": "2.12.0",
+        "@parcel/validator-typescript": "2.12.0",
+        "@types/firefox-webext-browser": "120.0.3",
+        "@types/react": "18.2.66",
+        "@types/react-dom": "18.2.22",
+        "@typescript-eslint/eslint-plugin": "7.2.0",
+        "@typescript-eslint/parser": "7.2.0",
         "concurrently": "8.2.2",
-        "eslint": "8.56.0",
+        "eslint": "8.57.0",
         "eslint-config-prettier": "9.1.0",
-        "parcel": "2.11.0",
-        "postcss": "8.4.33",
-        "prettier": "3.2.4",
+        "parcel": "2.12.0",
+        "postcss": "8.4.35",
+        "prettier": "3.2.5",
         "rimraf": "5.0.5",
         "tailwindcss": "3.4.1",
-        "typescript": "5.3.3",
+        "typescript": "5.4.2",
         "wait-on": "7.2.0",
         "web-ext": "7.11.0"
     },
@@ -81,6 +81,7 @@
     },
     "targets": {
         "webext-dev": {
+            "distDir": "dist",
             "sourceMap": {
                 "inline": true,
                 "inlineSources": true

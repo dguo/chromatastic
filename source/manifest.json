@@ -1,10 +1,10 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "Chromatastic",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "author": "Danny Guo",
     "homepage_url": "https://github.com/dguo/chromatastic",
-    "applications": {
+    "browser_specific_settings": {
         "gecko": {
             "id": "@chromatastic",
             "strict_min_version": "63.0a1"
@@ -17,13 +17,8 @@
         "96": "images/logo-96.png",
         "128": "images/logo-128.png"
     },
-    "permissions": ["storage", "theme"],
+    "permissions": ["alarms", "storage", "theme"],
     "background": {
         "scripts": ["scripts/background.ts"]
-    },
-    "options_ui": {
-        "browser_style": false,
-        "open_in_tab": true,
-        "page": "options.html"
     }
 }
